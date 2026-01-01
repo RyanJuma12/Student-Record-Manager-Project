@@ -1,5 +1,5 @@
 //
-// Created by thoma on 12/31/2025.
+// Created by Ryan J on 12/31/2025.
 //
 
 #ifndef STUDENT_RECORD_MANAGER_PROJECT_STUDENTMANAGER_H
