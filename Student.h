@@ -1,0 +1,13 @@
+//
+// Created by thoma on 12/31/2025.
+//
+
+#ifndef STUDENT_RECORD_MANAGER_PROJECT_STUDENT_H
+#define STUDENT_RECORD_MANAGER_PROJECT_STUDENT_H
+
+
+class Student {
+};
+
+
+#endif //STUDENT_RECORD_MANAGER_PROJECT_STUDENT_H
