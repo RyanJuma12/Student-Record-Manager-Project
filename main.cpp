@@ -7,41 +7,50 @@ void printMenu();
 
 int main() {
 
-    char choice;
-    int selection;
+    int selection = 0;
+    StudentManager SMobj;
+
+    int ID;
+    std::string name;
+    double GPA;
 
     do {
-
     printMenu();
 
     std::cout << "Enter Mode: \n";
     std::cin >> selection;
 
-
     switch (selection) {
         case 1:
-            //Will call on an add student function
+            std::cout << "Enter Student ID.\n";
+            std::cin >> ID;
+
+            std::cout << "Enter Student Name.\n";
+            std::cin.ignore();
+            std::getline(std::cin, name);
+
+            std::cout << "Enter Student GPA.\n";
+            std::cin >> GPA;
+
+            SMobj.addStudent(ID, name, GPA);
             break;
         case 2:
-            //will call on a view student function
+            SMobj.displayStudents();
             break;
         case 3:
-            //will call on a save to file function
+            SMobj.saveStudents("students.txt");
             break;
         case 4:
-            //will call on a load to file function
+            SMobj.loadStudents("students.txt");
             break;
         case 5:
-            //will break out of the menu
+            std::cout << "Exiting Program.\n";
             break;
         default:
             std::cout << "Invalid Selection!\n";
     }
 
-    std::cout << "Do you want to run the program again. (y/Y).\n";
-    std::cin >> choice;
-
-    } while (choice == 'y'  || choice == 'Y');
+    } while (selection !=5);
 
     std::cout << "Thanks for Using the Program.\n";
     return 0;
