@@ -4,6 +4,7 @@
 #include "StudentManager.h"
 
 void printMenu();
+void getUserInput(int &ID, std::string &name, double &GPA);
 
 int main() {
 
@@ -22,16 +23,7 @@ int main() {
 
     switch (selection) {
         case 1:
-            std::cout << "Enter Student ID.\n";
-            std::cin >> ID;
-
-            std::cout << "Enter Student Name.\n";
-            std::cin.ignore();
-            std::getline(std::cin, name);
-
-            std::cout << "Enter Student GPA.\n";
-            std::cin >> GPA;
-
+            getUserInput(ID, name, GPA);
             SMobj.addStudent(ID, name, GPA);
             break;
         case 2:
@@ -63,4 +55,16 @@ void printMenu() {
     std::cout << "3. Save to file\n";
     std::cout << "4. Load from file\n";
     std::cout << "5.exit\n";
+}
+
+void getUserInput(int &ID, std::string &name, double &GPA) {
+    std::cout << "Enter Student ID.\n";
+    std::cin >> ID;
+
+    std::cout << "Enter Student Name.\n";
+    std::cin.ignore();
+    std::getline(std::cin, name);
+
+    std::cout << "Enter Student GPA.\n";
+    std::cin >> GPA;
 }
