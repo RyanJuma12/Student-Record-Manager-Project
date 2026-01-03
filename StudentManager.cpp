@@ -32,9 +32,38 @@ void StudentManager::displayStudents() const {
 }
 
 void StudentManager::saveStudents(const std::string &filename) {
+    std::ofstream outFile(filename);
 
+        if (!outFile.is_open()) {
+            std::cout << "Error opening file for writing.\n";
+            return;
+        }
+        for (const Student& s : students) {
+            outFile << s.getID() << " "
+                    << s.getName() << " "
+                    << s.getGPA() << "\n";
+        }
+        outFile.close();
+        std::cout << "Students saved successfully.\n";
 }
 
 void StudentManager::loadStudents(const std::string &filename) {
+    std::ifstream infile(filename);
 
+    if (!infile.is_open()) {
+        std::cout << "Error opening file for reading.\n";
+        return;
+    }
+    students.clear();
+
+    int ID;
+    std::string name;
+    double GPA;
+
+    while (infile >> ID >> name >> GPA) {
+        Student s(ID, name, GPA);
+        students.push_back(s);
+    }
+    infile.close();
+    std::cout << "Students loaded successfully.\n";
 }
